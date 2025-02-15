@@ -11,7 +11,8 @@ const PostSchema = new mongoose.Schema({
     "😲": [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     "🙌": [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     "🔥": [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }]
-  }
+  },
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }] // Relación con los comentarios
 }, { timestamps: true });
 
 module.exports = mongoose.model('Post', PostSchema);

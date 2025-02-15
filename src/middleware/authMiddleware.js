@@ -25,16 +25,7 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
-const verifyPostOwner = async (req, res, next) => {
-  const post = await Post.findById(req.params.id);
-  if (!post) return res.status(404).json({ message: "Post no encontrado" });
-
-  if (post.author.toString() !== req.user.userId) {
-    return res.status(403).json({ message: "No tienes permiso para modificar este post" });
-  }
-
-  next();
-};
 
 
-module.exports = authMiddleware, verifyPostOwner;
+
+module.exports = authMiddleware;

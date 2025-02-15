@@ -4,6 +4,7 @@ const cors = require('cors');
 const connectDB = require('./src/config/db'); // Conectar a MongoDB
 const authRoutes = require('./src/routes/authRoutes');
 const postRoutes = require('./src/routes/postRoutes');
+const commentRoutes = require('./src/routes/commentRoutes');
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -17,6 +18,7 @@ app.use(express.json()); // Middleware para manejar JSON
 // Rutas de autenticación y posts
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
+app.use('/api/comments', commentRoutes);
 
 // Ruta no encontrada
 app.use((req, res) => res.status(404).json({ message: 'Ruta no encontrada' }));
